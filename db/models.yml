@@ -1,0 +1,27 @@
+Event:
+  event_title: string
+  description: text
+  date: date
+  time: time
+  location: string
+
+RsvpCap:
+  capacity: integer
+
+Frequency:
+  frequency: string
+
+User:
+  name: string
+  email: string
+  password: string
+  
+
+Meetup:
+  category_id: integer
+  event_id: integer
+  user_id: integer
+  
+Category:
+  category: string
+  

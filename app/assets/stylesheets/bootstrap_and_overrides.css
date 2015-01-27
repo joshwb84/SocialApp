@@ -1,0 +1,36 @@
+@import "bootstrap.min";
+/*OVER RIDE because its changing colors @import "bootstrap-theme.min"; */ 
+
+/* Move down content because we have a fixed navbar that is 60px tall */
+body {
+  padding-top: 70px;
+  padding-bottom: 20px;
+}
+
+/* Override Rail's default error calls with Bootstrap 3 */
+.field_with_errors {
+  @extend .has-error;
+}
+
+/* Override Bootstrap 3 font location */
+@font-face {
+  font-family: 'Glyphicons Halflings';
+  src: url('../assets/glyphicons-halflings-regular.eot');
+  src: url('../assets/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'), 
+       url('../assets/glyphicons-halflings-regular.woff') format('woff'), 
+       url('../assets/glyphicons-halflings-regular.ttf') format('truetype'), 
+       url('../assets/glyphicons-halflings-regular.svg#glyphicons_halflingsregular') format('svg');
+}
+
+/* Override Jumbotron background */
+.jumbotron {
+    margin-bottom: 0px;
+    background-image: url("https://ununsplash.imgix.net/21/mac-glasses.JPG?q=75&fm=jpg&s=b071b2245118757fbfc6ff9f9dd9cb7c");
+    background-position: 0% 55%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: white;
+
+   
+    
+}
