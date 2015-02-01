@@ -1,13 +1,13 @@
-class EventsController < ApplicationController
+class UsersController < ApplicationController
+
 def index
-@events = Event.all 
+  #want to redirect to Signin page
 
 end
 
 def show
 # do something with params
-@event = Event.find_by(id: params["id"])
-
+@user = user.find_by(id: params["id"])
 end
 
 def new
@@ -28,5 +28,10 @@ end
 def destroy
 # do something with params
 end
+
+
+
+
+
 
 end

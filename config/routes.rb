@@ -61,6 +61,7 @@
 #Bootstrap::Application.routes.draw do - removed this because it was in the example but I dont need it
 
 resources :events
+resources :users
 
 # Static Pages
   get '/about'    => 'high_voltage/pages#show', id: 'about'
@@ -69,7 +70,7 @@ resources :events
 
   get '/signin'   => 'high_voltage/pages#show', id: 'signin'
   get '/blog'     => 'high_voltage/pages#show', id: 'blog'
-  get '/register'     => 'high_voltage/pages#show', id: 'register'
+#  get '/register'     => 'high_voltage/pages#show', id: 'register'
 #  get '/create'     => 'high_voltage/pages#show', id: 'create'
 
   get '/home', to: redirect('/')

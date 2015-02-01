@@ -1,0 +1,32 @@
+
+<% provide(:title, 'Events') %>
+
+ <legend><h1><%= @event.title %></h1></legend>
+<div class="container">
+    <!-- Example row of columns -->
+ 
+  <div class="row">
+     <div class="col-md-8">
+      <div class="panel panel-default">
+        <div class="panel-heading"><b>Event Details</b></div>
+           <div class="panel-body">
+             <p>Date:  <%= @event.date %></p>
+<p>Time:  <%= @event.time %></p>
+<p>Location:  <%= @event.location %></p>
+<p><b>Description:</b><p><%= @event.description %></p>  
+  </div>
+</div>
+</div>
+  
+<div class="col-md-4">
+      <div class="panel panel-default">
+           <div class="panel-body">
+             <a href="#" class="btn btn-primary btn-lg btn-block"><i class="fa fa-ticket fa-2x"></i> RSVP</a>
+
+  </div>
+</div>
+</div>
+</div>
+</div>  
+
+

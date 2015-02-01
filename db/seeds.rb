@@ -13,18 +13,7 @@ User.delete_all
 #The following lines are static lists. Don't need to wipe them clean each time
 RsvpCap.delete_all  
 Frequency.delete_all
-Meetup.delete_all
 Category.delete_all
-
-
-# Create the events
-puts "Creating events, Here we gooooo..."
-event_one = Event.create(event_title: "Chat over coffee", description: "Lets meet to talk about Spring break plans and deals we've seen", date: "2014-1-1", time: "11:30am", location: "Starbucks in DT evanston")
-event_two = Event.create(event_title: "Dance to some techno", description: "Meet me at SmartBar and we'll dance to some techno", date: "2014-3-3", time: "11:30pm", location: "SmartBar in Chicago")
-event_three = Event.create(event_title: "Lunch at Jake", description: "I'd like to meet some new students", date: "2015-5-4", time: "12:15pm", location: "Atrium at Jake")
-event_four = Event.create(event_title: "Finance 2 study session", description: "Come study with me to learn Finance 2. we can ask weach other questions", date: "2015-2-3", time: "5:30pm", location: "Jacobs G24")
-event_five = Event.create(event_title: "Startup discussions", description: "Lets talk about launching a startup at Kellogg", date: "2014-3-14", time: "6:30pm", location: "LSR")
-event_six = Event.create(event_title: "Monday runs", description: "Run 2.5 miles along beach path. Meet at wholefoods", date: "2015-1-14", time: "6:30am", location: "Wholefoods")
 
 
 # Create the users
@@ -52,30 +41,20 @@ quarterly = Frequency.create(frequency: "quarterly")
 
 # Create the category
 puts "Creating category..."
-social = Category.create(category: "social")
-academic = Category.create(category: "academic")
-exercise = Category.create(category: "exercise")
+social = Category.create(name: "social",logo: "fa fa-comments")
+academic = Category.create(name: "academic",logo: "fa fa-graduation-cap")
+exercise = Category.create(name: "exercise",logo: "fa fa-bolt")
 
 
-puts "Creating Meetup..."
-
-# Create the meetup for event_one
-Meetup.create(category_id: social.id, event_id: event_one.id, user_id: user_two.id)
-
-# Create the meetup for event_two
-Meetup.create(category_id: social.id, event_id: event_two.id, user_id: user_four.id)
-
-# Create the meetup for event_three
-Meetup.create(category_id: academic.id, event_id: event_three.id, user_id: user_five.id)
-
-# Create the meetup for event_four
-Meetup.create(category_id: academic.id, event_id: event_four.id, user_id: user_one.id)
-
-# Create the meetup for event_five
-Meetup.create(category_id: academic.id, event_id: event_five.id, user_id: user_three.id)
-
-# Create the meetup for event_six
-Meetup.create(category_id: exercise.id, event_id: event_six.id, user_id: user_three.id)
+# Create the events
+puts "Creating events, Here we gooooo..."
+event_one = Event.create(category_id: social.id,title: "Chat over coffee", description: "Lets meet to talk about Spring break plans and deals we've seen", date: "2014-1-1", time: "11:30am", location: "Starbucks in DT evanston",user_id: user_one.id)
+event_two = Event.create(category_id: social.id,title: "Dance to some techno", description: "Meet me at SmartBar and we'll dance to some techno", date: "2014-3-3", time: "11:30pm", location: "SmartBar in Chicago",user_id: user_two.id)
+event_three = Event.create(category_id: academic.id,title: "Lunch at Jake", description: "I'd like to meet some new students", date: "2015-5-4", time: "12:15pm", location: "Atrium at Jake",user_id: user_three.id)
+event_four = Event.create(category_id: academic.id,title: "Finance 2 study session", description: "Come study with me to learn Finance 2. we can ask weach other questions", date: "2015-2-3", time: "5:30pm", location: "Jacobs G24",user_id: user_four.id)
+event_five = Event.create(category_id: academic.id,title: "Startup discussions", description: "Lets talk about launching a startup at Kellogg", date: "2014-3-14", time: "6:30pm", location: "LSR",user_id: user_one.id)
+event_six = Event.create(category_id: exercise.id,title: "Monday runs", description: "Run 2.5 miles along beach path. Meet at wholefoods", date: "2015-1-14", time: "6:30am", location: "Wholefoods",user_id: user_five.id)
 
 
-puts "There are now #{User.count} Users and #{Meetup.count} Meetups in the database."
+
+puts "There are now #{User.count} Users and #{Event.count} Meetups in the database."

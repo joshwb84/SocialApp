@@ -41,6 +41,7 @@ gem 'autoprefixer-rails'
 # gem 'sass-rails'
 
 gem 'high_voltage', '~> 2.2.1'
+gem "font-awesome-rails"
 
 #gem 'simple_form'
 

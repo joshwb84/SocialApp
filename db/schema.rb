@@ -14,30 +14,26 @@
 ActiveRecord::Schema.define(version: 0) do
 
   create_table "categories", force: :cascade do |t|
-    t.string "category"
+    t.string "name"
+    t.string "logo"
   end
 
   create_table "events", force: :cascade do |t|
-    t.string "event_title"
-    t.text   "description"
-    t.date   "date"
-    t.time   "time"
-    t.string "location"
+    t.text    "description"
+    t.date    "date"
+    t.time    "time"
+    t.string  "location"
+    t.integer "category_id"
+    t.integer "user_id"
+    t.string  "title"
   end
+
+  add_index "events", ["category_id"], name: "index_events_on_category_id"
+  add_index "events", ["user_id"], name: "index_events_on_user_id"
 
   create_table "frequencies", force: :cascade do |t|
     t.string "frequency"
   end
-
-  create_table "meetups", force: :cascade do |t|
-    t.integer "event_id"
-    t.integer "user_id"
-    t.integer "category_id"
-  end
-
-  add_index "meetups", ["category_id"], name: "index_meetups_on_category_id"
-  add_index "meetups", ["event_id"], name: "index_meetups_on_event_id"
-  add_index "meetups", ["user_id"], name: "index_meetups_on_user_id"
 
   create_table "rsvp_caps", force: :cascade do |t|
     t.integer "capacity"
