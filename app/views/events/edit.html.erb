@@ -1,0 +1,96 @@
+<% provide(:title, 'New Event') %>
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+</head>
+
+<body>
+    <div class="container">
+        <!-- Example row of columns -->
+
+        <div class="row">
+            <div class="col-md-9 col-md-offset-1">
+            <br>
+                        <form class="form-horizontal">
+                      <fieldset>
+                         <legend><h1> Enter the details of the Event</h1></legend>
+        <p>Please enter the fields below and to create your event</p>
+                           <%= form_for @event do |form| %>
+                                
+
+
+                                <div class="form-group">
+                                <%= form.label :category_id, class: "col-lg-2 control-label" %>
+
+                                    <div class="col-lg-10">
+                                        <%= form.text_field :title, class: "form-control", placeholder: "Short distinct name"%> 
+                                    </div>
+                                </div>
+
+
+
+
+
+
+
+                                <div class="form-group">
+                                <%= form.label :title, class: "col-lg-2 control-label" %>
+
+                                    <div class="col-lg-10">
+                                        <%= form.text_field :title, class: "form-control", placeholder: "Short distinct name"%> 
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <%= form.label :description, class: "col-lg-2 control-label" %>
+
+                                    <div class="col-lg-10">
+                                        <%= form.text_area :description, class: "form-control", placeholder: "A more detailed description of your event"%> 
+                                   
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                     <%= form.label :date, class: "col-lg-2 control-label" %>
+
+                                    <div class="col-lg-10">
+                                        <%= form.date_field :date, class: "form-control" %> 
+                                    </div>
+                                </div>
+ 
+                                <div class="form-group">
+                                    <%= form.label :time, class: "col-lg-2 control-label" %>
+
+                                    <div class="col-lg-10">
+                                       <%= form.time_field :time, class: "form-control" %> 
+
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <%= form.label :location, class: "col-lg-2 control-label" %>
+
+                                    <div class="col-lg-10">
+<%= form.text_field :location, class: "form-control", placeholder: "Enter location and exact spot to meet" %> 
+                                    </div>
+                                </div>
+
+                               
+                                <div class="col-lg-10 col-lg-offset-2">
+<%= form.button 'Publish my event', class: "btn btn-success" %>  <% end %> 
+                                </div>
+                                    
+                            </fieldset>
+                        </form>
+                    
+               
+            </div>
+        </div>
+
+        
+    </div>
+</body>
+</html>
+
+

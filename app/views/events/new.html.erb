@@ -12,81 +12,65 @@
         <div class="row">
             <div class="col-md-9 col-md-offset-1">
             <br>
-                        <form class="form-horizontal">
-                      <fieldset>
+                       <form class="form-horizontal">
+                       <%= form_for @event do |form| %><fieldset>
                          <legend><h1> Enter the details of the Event</h1></legend>
         <p>Please enter the fields below and to create your event</p>
                            
+
+ 
+
+                                
                                 <div class="form-group">
-                                    <label class="col-lg-2 control-label" for=
-                                    "event_title">Title for Event</label>
+                                <%= form.label :title, class: "col-lg-2 control-label" %>
 
                                     <div class="col-lg-10">
-                                        <input class="form-control" id=
-                                        "event_title" placeholder=
-                                        "Short distinct name" type="text">
+                                        <%= form.text_field :title, class: "form-control", placeholder: "Short distinct name"%> 
                                     </div>
                                 </div>
 
                                 <div class="form-group">
-                                    <label class="col-lg-2 control-label" for=
-                                    "description">Description</label>
+                                    <%= form.label :description, class: "col-lg-2 control-label" %>
 
                                     <div class="col-lg-10">
-                                        <input class="form-control" id=
-                                        "description" placeholder="A more detailed description of your event"
-                                        type="text">
+                                        <%= form.text_area :description, class: "form-control", placeholder: "A more detailed description of your event"%> 
+                                   
                                     </div>
                                 </div>
 
                                 <div class="form-group">
-                                    <label class="col-lg-2 control-label" for=
-                                    "date">Date</label>
+                                     <%= form.label :date, class: "col-lg-2 control-label" %>
 
                                     <div class="col-lg-10">
-                                        <input class="form-control" id=
-                                        "date" placeholder="Enter the date" type=
-                                        "text">
+                                        <%= form.date_field :date, class: "form-control" %> 
                                     </div>
                                 </div>
-
+ 
                                 <div class="form-group">
-                                    <label class="col-lg-2 control-label" for=
-                                    "time">Time</label>
+                                    <%= form.label :time, class: "col-lg-2 control-label" %>
 
                                     <div class="col-lg-10">
-                                        <input class="form-control" id=
-                                        "time" placeholder="Time"
-                                        type="text">
+                                       <%= form.time_field :time, class: "form-control" %> 
 
                                     </div>
                                 </div>
 
                                 <div class="form-group">
-                                    <label class="col-lg-2 control-label" for=
-                                    "location">Location</label>
+                                    <%= form.label :location, class: "col-lg-2 control-label" %>
 
                                     <div class="col-lg-10">
-                                        <input class="form-control" id=
-                                        "location" placeholder="Enter meeting location"
-                                        type="text">
-
+<%= form.text_field :location, class: "form-control", placeholder: "Enter location and exact spot to meet" %> 
                                     </div>
                                 </div>
 
-                                <div class="form-group">
-                                    <div class="col-lg-10 col-lg-offset-2">
-                                        <button class="btn btn-success" type=
-                                        "create">Publish my event</button>
-                                        
-                                        
-                                    </div>
+                               
+                                <div class="col-lg-10 col-lg-offset-2">
+<%= form.button 'Publish my event', class: "btn btn-success" %>  
                                 </div>
                                     
-                            </fieldset>
+                          </fieldset> 
                         </form>
-                    
-               
+               <% end %> 
             </div>
         </div>
 
@@ -94,3 +78,5 @@
     </div>
 </body>
 </html>
+
+
