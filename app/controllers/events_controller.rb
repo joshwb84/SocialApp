@@ -15,9 +15,9 @@ def new
 end
 
 def create
-
+event_params = params.require(:event).permit(:category_id, :title, :description, :date, :time, :location)
   Event.create(event_params)
-    redirect_to events_path
+   redirect_to events_path
 end
 
 def edit
@@ -26,10 +26,10 @@ def edit
 end
 
 def update
-event_params = params.require(:event).permit(:category, :title, :description, :date, :time, :location)
+event_params = params.require(:event).permit(:category_id, :title, :description, :date, :time, :location)
 @event = Event.find_by(id: params["id"])
   @event.update(event_params)
-    redirect_to events_path
+    redirect_to event_path
 end
 
 def destroy

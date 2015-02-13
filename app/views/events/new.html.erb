@@ -12,15 +12,20 @@
         <div class="row">
             <div class="col-md-9 col-md-offset-1">
             <br>
-                       <form class="form-horizontal">
-                       <%= form_for @event do |form| %><fieldset>
-                         <legend><h1> Enter the details of the Event</h1></legend>
+                        <legend><h1> Enter the details of the Event</h1></legend>
+                       <%= simple_form_for(@event, html: { class: 'form-horizontal' }) do |form|%>
+                        
         <p>Please enter the fields below and to create your event</p>
                            
+                            <div class="form-group">
+                                <%= form.label :category_id, class: "col-lg-2 control-label" %>
 
- 
+                                    <div class="col-lg-10">
+                                        <%= form.input_field :category_id, as: :select, collection: Category.all, class: "form-control"%> 
+                                    </div>
+                                </div>
 
-                                
+
                                 <div class="form-group">
                                 <%= form.label :title, class: "col-lg-2 control-label" %>
 
@@ -65,12 +70,11 @@
 
                                
                                 <div class="col-lg-10 col-lg-offset-2">
-<%= form.button 'Publish my event', class: "btn btn-success" %>  
+<%= form.button :submit, class: "btn btn-success" %>  
                                 </div>
-                                    
-                          </fieldset> 
-                        </form>
-               <% end %> 
+                                    <% end %> 
+                          
+               
             </div>
         </div>
 

@@ -13,6 +13,8 @@
       <th>Date</th>
       <th>Time</th>
       <th>Location</th>
+       <th></th>
+      <th></th>
     </tr>
   </thead>
   <tbody>
@@ -21,11 +23,13 @@
     <tr>
       <td><i class="<%= event.category.logo %>"></i></td>
       <td><%= event.category.name %></td>
-      <td><a href="events/<%= event.id %>"><%= event.title %></a></td>
+      <td><%= link_to event.title, event_path(event.id) %></td>
       <td><%= event.description %></td>
       <td><%= event.date %></td>
       <td><%= event.time %></td>
       <td><%= event.location %></td>
+      <td><%= link_to "Edit", edit_event_path(event) %></td>
+      <td><%= link_to "Delete", event_path(event), method: :delete, data: {confirm:'Are you really sure? BE CAREFUL'} %> </td>
     </tr>
 <% end %>
   </tbody>

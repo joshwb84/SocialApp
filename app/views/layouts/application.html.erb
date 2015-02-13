@@ -36,14 +36,10 @@
       <div class="navbar-collapse collapse navbar-default-collapse">
          <ul class="nav navbar-nav pull-right">
           <li class="<%= 'active' if current_page?(root_path) %>"><%= link_to "Home", root_path %></li>
+          <li class="<%= 'active' if current_page?(events_path) %>"><%= link_to "Browse", events_path %></li>
           <li class="<%= 'active' if current_page?(signin_path) %>"><%= link_to "Sign in", signin_path %></li>
           <li class="<%= 'active' if current_page?(about_path) %>"><%= link_to "About", about_path %></li>
           
-          
-        
-
-
-
         </ul>
       </div><!-- /.nav-collapse -->
     </div><!-- /.container -->

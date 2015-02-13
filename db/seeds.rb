@@ -41,9 +41,9 @@ quarterly = Frequency.create(frequency: "quarterly")
 
 # Create the category
 puts "Creating category..."
-social = Category.create(name: "social",logo: "fa fa-comments")
-academic = Category.create(name: "academic",logo: "fa fa-graduation-cap")
-exercise = Category.create(name: "exercise",logo: "fa fa-bolt")
+social = Category.create(name: "Social",logo: "fa fa-comments")
+academic = Category.create(name: "Academic",logo: "fa fa-graduation-cap")
+exercise = Category.create(name: "Exercise",logo: "fa fa-bolt")
 
 
 # Create the events
