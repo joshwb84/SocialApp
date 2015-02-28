@@ -30,7 +30,6 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'bootstrap-sass', '~> 3.2.0'
 gem 'autoprefixer-rails'
 gem 'ez'
-gem 'omdb'
 gem 'bcrypt'
 gem 'simple_form'
 gem "font-awesome-rails"
