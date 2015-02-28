@@ -8,6 +8,7 @@ body {
   padding-bottom: 20px;
 }
 
+
 /* Override Rail's default error calls with Bootstrap 3 */
 #error_explanation {
   color: #f00;
@@ -20,6 +21,8 @@ body {
 .field_with_errors {
   @extend .has-error;
 }
+
+
 
 /* Override Bootstrap 3 font location */
 @font-face {
@@ -39,5 +42,4 @@ body {
     background-size: cover;
     background-repeat: no-repeat;
     color: white;
-    
 }
