@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <%= favicon_link_tag 'favicon.ico' %>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,6 +14,13 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <!-- Alerts -->
+      <% if notice %>
+        <div class="alert alert-success" role="alert"><%= notice %></div>
+      <% end %>
+      <% if alert %>
+        <div class="alert alert-danger" role="alert"><%= alert %></div>
+      <% end %>
 
   <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!--[if lt IE 9]>
@@ -35,11 +43,20 @@
       </div>
       <div class="navbar-collapse collapse navbar-default-collapse">
          <ul class="nav navbar-nav pull-right">
-          <li class="<%= 'active' if current_page?(root_path) %>"><%= link_to "Home", root_path %></li>
           <li class="<%= 'active' if current_page?(events_path) %>"><%= link_to "Browse", events_path %></li>
-          <li class="<%= 'active' if current_page?(signin_path) %>"><%= link_to "Sign in", signin_path %></li>
-          <li class="<%= 'active' if current_page?(about_path) %>"><%= link_to "About", about_path %></li>
+
           
+          <li><% if current_user %>
+                <%= link_to "My Account" , user_path(current_user)%>
+                <% else %>
+                <%= link_to "Sign in", login_path %>
+                <% end %>
+          </li>
+          <li>
+                <% if current_user %>
+                <%= link_to "Sign out", logout_path %>
+                <% end %>
+          </li>
         </ul>
       </div><!-- /.nav-collapse -->
     </div><!-- /.container -->
@@ -66,9 +83,9 @@
       <p>
         &copy; <%= Time.now.year %> <%= site_name %> 
         &bull;
-        <%= link_to "Blog", blog_path %></li>
+        <%= link_to "Blog", "/blog" %></li>
         &bull;
-        <%= link_to "Terms", terms_path %></li>
+        <%= link_to "Terms", "/terms" %></li>
       </p>
     </footer>
      </div> <!-- /container -->

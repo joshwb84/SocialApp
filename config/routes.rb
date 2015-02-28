@@ -62,18 +62,21 @@
 
 resources :events
 resources :users
+resources :sessions
 
 # Static Pages
-  get '/about'    => 'high_voltage/pages#show', id: 'about'
-  get '/terms'    => 'high_voltage/pages#show', id: 'terms'
-
-
-  get '/signin'   => 'high_voltage/pages#show', id: 'signin'
-  get '/blog'     => 'high_voltage/pages#show', id: 'blog'
-#  get '/register'     => 'high_voltage/pages#show', id: 'register'
-#  get '/create'     => 'high_voltage/pages#show', id: 'create'
-
+  get '/about', to: 'home#about', :as => "about"
+  get '/terms', to: 'home#terms', :as => "terms"
+  get '/login', to: 'sessions#new'
+  get '/logout', to: 'sessions#destroy'
+  get '/register', to: 'users#new'
   get '/home', to: redirect('/')
   root :to => 'home#home'
+
+#  get '/signin'   => 'high_voltage/pages#show', id: 'signin'
+  get '/blog', to: 'home#blog', :as => "blog"
+#  get '/create'     => 'high_voltage/pages#show', id: 'create'
+
+  
 
 end

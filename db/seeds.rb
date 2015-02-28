@@ -18,11 +18,11 @@ Category.delete_all
 
 # Create the users
 puts "Creating your Users dog..."
-user_one = User.create(name: "John Billy",email: "John@aol.com",password: "slipknow23")
-user_two = User.create(name: "Alex Smart",email: "smartalex@gmail.com",password: "AAlex123")
-user_three = User.create(name: "Steph Graph",email: "Graphme@hotmail.com",password: "Steph123")
-user_four = User.create(name: "Brian Eno",email: "EnosMusic@yahoo.com",password: "BrianKnowsPW")
-user_five = User.create(name: "Laura bobbit",email: "laura@gmail.com",password: "lauraspassword")
+user_one = User.create(name: "John Billy",email: "John@aol.com",password: "slipknow23",tandc: "1")
+user_two = User.create(name: "Alex Smart",email: "smartalex@gmail.com",password: "AAlex123",tandc: "1")
+user_three = User.create(name: "Steph Graph",email: "Graphme@hotmail.com",password: "Steph123",tandc: "1")
+user_four = User.create(name: "Brian Eno",email: "EnosMusic@yahoo.com",password: "BrianKnowsPW",tandc: "1")
+user_five = User.create(name: "Laura bobbit",email: "laura@gmail.com",password: "lauraspassword",tandc: "1")
 
 # Create the Rsvp Cap
 puts "Creating RsvpCaps..."

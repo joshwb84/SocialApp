@@ -1,4 +1,7 @@
 class EventsController < ApplicationController
+skip_before_action :require_user, only: [:index, :show]
+
+  
 def index
 @events = Event.all 
 
@@ -17,7 +20,7 @@ end
 def create
 event_params = params.require(:event).permit(:category_id, :title, :description, :date, :time, :location)
   Event.create(event_params)
-   redirect_to events_path
+   redirect_to event_path
 end
 
 def edit
