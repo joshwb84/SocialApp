@@ -12,15 +12,14 @@
         <div class="row">
             <div class="col-md-9 col-md-offset-1">
             <br>
-                        <legend><h1> Enter the details of the Event</h1></legend>
+                        <legend><h1> Create an event</h1></legend>
                        <%= simple_form_for(@event, html: { class: 'form-horizontal' }) do |form|%>
-                        
-        <p>Please enter the fields below and to create your event</p>
-                           
+                        <%= render 'shared/error_messages', object: @event %>
+                                
                             <div class="form-group">
                                 <%= form.label :category_id, class: "col-lg-2 control-label" %>
 
-                                    <div class="col-lg-10">
+                                    <div class="col-lg-3">
                                         <%= form.input_field :category_id, as: :select, collection: Category.all, class: "form-control"%> 
                                     </div>
                                 </div>
@@ -29,7 +28,7 @@
                                 <div class="form-group">
                                 <%= form.label :title, class: "col-lg-2 control-label" %>
 
-                                    <div class="col-lg-10">
+                                    <div class="col-lg-6">
                                         <%= form.text_field :title, class: "form-control", placeholder: "Short distinct name"%> 
                                     </div>
                                 </div>
@@ -37,7 +36,7 @@
                                 <div class="form-group">
                                     <%= form.label :description, class: "col-lg-2 control-label" %>
 
-                                    <div class="col-lg-10">
+                                    <div class="col-lg-6">
                                         <%= form.text_area :description, class: "form-control", placeholder: "A more detailed description of your event"%> 
                                    
                                     </div>
@@ -46,7 +45,7 @@
                                 <div class="form-group">
                                      <%= form.label :date, class: "col-lg-2 control-label" %>
 
-                                    <div class="col-lg-10">
+                                    <div class="col-lg-3">
                                         <%= form.date_field :date, class: "form-control" %> 
                                     </div>
                                 </div>
@@ -54,7 +53,7 @@
                                 <div class="form-group">
                                     <%= form.label :time, class: "col-lg-2 control-label" %>
 
-                                    <div class="col-lg-10">
+                                    <div class="col-lg-3">
                                        <%= form.time_field :time, class: "form-control" %> 
 
                                     </div>
@@ -63,14 +62,14 @@
                                 <div class="form-group">
                                     <%= form.label :location, class: "col-lg-2 control-label" %>
 
-                                    <div class="col-lg-10">
+                                    <div class="col-lg-6">
 <%= form.text_field :location, class: "form-control", placeholder: "Enter location and exact spot to meet" %> 
                                     </div>
                                 </div>
 
                                
                                 <div class="col-lg-10 col-lg-offset-2">
-<%= form.button :submit, class: "btn btn-success" %>  
+<%= form.button :submit, class: "btn btn-success" %>  &nbsp; <%= link_to "Cancel", events_path, class: "btn btn-warning"  %>  
                                 </div>
                                     <% end %> 
                           

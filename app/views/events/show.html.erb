@@ -1,32 +1,79 @@
 
-<% provide(:title, 'Events') %>
+<% provide(:title, 'Event') %>
 
- <legend><h1><%= @event.title %></h1></legend>
-<div class="container">
-    <!-- Example row of columns -->
- 
-  <div class="row">
-     <div class="col-md-8">
-      <div class="panel panel-default">
-        <div class="panel-heading"><b>Event Details</b></div>
-           <div class="panel-body">
-             <p>Date:  <%= @event.date %></p>
-<p>Time:  <%= @event.time %></p>
-<p>Location:  <%= @event.location %></p>
-<p><b>Description:</b><p><%= @event.description %></p>  
-  </div>
-</div>
-</div>
-  
-<div class="col-md-4">
-      <div class="panel panel-default">
-           <div class="panel-body">
-             <a href="#" class="btn btn-primary btn-lg btn-block"><i class="fa fa-ticket fa-2x"></i> RSVP</a>
+<hr class="">
+<div class="container target">
+    <div class="row">
+        <div class="col-sm-8">
+             <h1 class=""><%= @event.title %></h1>
+             <p class="lead"> <b>Description:</b> <%= @event.description %> </p>
+<br>
+        </div>
+      
 
-  </div>
+     
+      <div class="col-sm-2"><a href="#" class="btn btn-primary btn-lg btn-block"><i class="fa fa-ticket fa-2x"></i> <br><br>Join this Event</a>
+
+        </div>
+    <div class="col-sm-2">
+
+      </div>
+
+
+
+
+
+
+    </div>
+  <br>
+    <div class="row">
+        <div class="col-sm-4">
+            <!--left col-->
+            <ul class="list-group">
+                <li class="list-group-item text-muted" contenteditable="false">Details</li>
+                <li class="list-group-item text-right"><span class="pull-left"><strong>Category:</strong></span> <%= @event.category.name%></li>
+                <li class="list-group-item text-right"><span class="pull-left"><strong>Date:</strong></span> <%= @event.date %></li>
+                <li class="list-group-item text-right"><span class="pull-left"><strong>Time</strong></span> <%= @event.time %></li>
+                <li class="list-group-item text-right"><span class="pull-left"><strong>Location:</strong></span> <%= @event.location %></li>
+            </ul>
+           
+               
+        </div>
+        <!--/col-3-->
+        <div class="col-sm-8" contenteditable="false" style="">
+            <div class="panel panel-default">
+                <div class="panel-heading">People attending #</div>
+                <div class="panel-body"> 
+      
 </div>
-</div>
-</div>
-</div>  
+            </div>
+           
+
+           </div>
+        </div>
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 

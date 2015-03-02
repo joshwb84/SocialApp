@@ -2,6 +2,7 @@ class UsersController < ApplicationController
 skip_before_action :require_user, only: [:new, :create, :show]
 
 def index
+redirect_to root_path, notice: "Only administrators can see that page"
 # @users = User.all 
 end
 
@@ -18,9 +19,9 @@ def create
 user_params = params.require(:user).permit!
   @user = User.create(user_params)
     if @user.valid?
-      redirect_to user_path, notice: "You're account was created successfully"
+      redirect_to root_path, notice: "You're account was created successfully"
     else 
-      render "new", alert: "Please recheck the errors below"
+      render "new"
       User.name
     end
 end
@@ -31,9 +32,9 @@ end
 
 def update
 user_params = params.require(:user).permit!
-  @user = User.create(user_params)
-    if @user.valid?
-      redirect_to user_path, notice: "You're account was created successfully"
+  @user = User.find_by(id: params["id"])
+    if @user.update_attributes(user_params)
+      redirect_to user_path, notice: "You're account was updated successfully"
     else 
       render "new", alert: "Please recheck the errors below"
       User.name

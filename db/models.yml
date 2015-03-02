@@ -8,6 +8,8 @@ User:
   name: string
   email: string
   password_digest: string
+  description: text
+  facebook: string
   tandc: boolean
 
   
@@ -22,4 +24,9 @@ Event:
   date: date
   time: time
   location: string
-  user_id: integer
+  creator: integer
+  participant1: integer
+  participant2: integer
+  participant3: integer
+  participant4: integer
+  participant5: integer

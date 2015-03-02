@@ -24,12 +24,16 @@ ActiveRecord::Schema.define(version: 0) do
     t.time    "time"
     t.string  "location"
     t.integer "category_id"
-    t.integer "user_id"
     t.string  "title"
+    t.integer "creator"
+    t.integer "participant1"
+    t.integer "participant2"
+    t.integer "participant3"
+    t.integer "participant4"
+    t.integer "participant5"
   end
 
   add_index "events", ["category_id"], name: "index_events_on_category_id"
-  add_index "events", ["user_id"], name: "index_events_on_user_id"
 
   create_table "frequencies", force: :cascade do |t|
     t.string "frequency"
@@ -44,6 +48,8 @@ ActiveRecord::Schema.define(version: 0) do
     t.string  "email"
     t.string  "password_digest"
     t.boolean "tandc",           default: false
+    t.text    "description"
+    t.string  "facebook"
   end
 
 end
