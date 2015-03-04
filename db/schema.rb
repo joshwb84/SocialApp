@@ -25,19 +25,24 @@ ActiveRecord::Schema.define(version: 0) do
     t.string  "location"
     t.integer "category_id"
     t.string  "title"
-    t.integer "creator"
-    t.integer "participant1"
-    t.integer "participant2"
-    t.integer "participant3"
-    t.integer "participant4"
-    t.integer "participant5"
+    t.integer "user_id"
   end
 
   add_index "events", ["category_id"], name: "index_events_on_category_id"
+  add_index "events", ["user_id"], name: "index_events_on_user_id"
 
   create_table "frequencies", force: :cascade do |t|
     t.string "frequency"
   end
+
+  create_table "reservations", force: :cascade do |t|
+    t.integer "event_id"
+    t.integer "user_id"
+    t.string  "comment"
+  end
+
+  add_index "reservations", ["event_id"], name: "index_reservations_on_event_id"
+  add_index "reservations", ["user_id"], name: "index_reservations_on_user_id"
 
   create_table "rsvp_caps", force: :cascade do |t|
     t.integer "capacity"

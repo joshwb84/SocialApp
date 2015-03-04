@@ -24,9 +24,10 @@ Event:
   date: date
   time: time
   location: string
-  creator: integer
-  participant1: integer
-  participant2: integer
-  participant3: integer
-  participant4: integer
-  participant5: integer
+  user_id: integer
+
+
+Reservation:
+  event_id: integer
+  user_id: integer
+  comment: string

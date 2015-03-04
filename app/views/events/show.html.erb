@@ -14,15 +14,9 @@
      
       <div class="col-sm-2"><a href="#" class="btn btn-primary btn-lg btn-block"><i class="fa fa-ticket fa-2x"></i> <br><br>Join this Event</a>
 
-        </div>
-    <div class="col-sm-2">
-
       </div>
-
-
-
-
-
+      <div class="col-sm-2">
+      </div>
 
     </div>
   <br>
@@ -30,10 +24,10 @@
         <div class="col-sm-4">
             <!--left col-->
             <ul class="list-group">
-                <li class="list-group-item text-muted" contenteditable="false">Details</li>
-                <li class="list-group-item text-right"><span class="pull-left"><strong>Category:</strong></span> <%= @event.category.name%></li>
-                <li class="list-group-item text-right"><span class="pull-left"><strong>Date:</strong></span> <%= @event.date %></li>
-                <li class="list-group-item text-right"><span class="pull-left"><strong>Time</strong></span> <%= @event.time %></li>
+                <li class="list-group-item text-right"><span class="pull-left"><strong>Organizer:</strong></span> <%= @event.user.name %></li>
+                <li class="list-group-item text-right"><span class="pull-left"><strong>Category:</strong></span> <%= @event.category.name %></li>
+                <li class="list-group-item text-right"><span class="pull-left"><strong>Date:</strong></span> <%= @event.date.strftime("%B %e, %Y (%a)") %></li>
+                <li class="list-group-item text-right"><span class="pull-left"><strong>Time:</strong></span> <%= @event.time.strftime("%l:%M %p") %></li>
                 <li class="list-group-item text-right"><span class="pull-left"><strong>Location:</strong></span> <%= @event.location %></li>
             </ul>
            
@@ -42,29 +36,32 @@
         <!--/col-3-->
         <div class="col-sm-8" contenteditable="false" style="">
             <div class="panel panel-default">
-                <div class="panel-heading">People attending #</div>
+                <div class="panel-heading">Other people attending</div>
                 <div class="panel-body"> 
-      
-</div>
+               <% @reservations.each do |show| %>
+                <div class="col-sm-4"><p><strong><%= show.user.name %></strong><br>"<em><%= show.comment %></em>"</p></div>
+
+              <% end %>
+                </div>
             </div>
-           
-
-           </div>
         </div>
-        
+    </div>  
+<a href="http://infinite-falls-5300.herokuapp.com/events/<%= @event.id %>" title="Add to Calendar" class="addthisevent">
+    Add to Calendar
+    <span class="_start"><%= @event.date.strftime("%m/%d/%Y ") %><%= @event.time.strftime("%k:%M:%S %p") %></span>
+    <span class="_end"><%= @event.date.strftime("%m/%d/%Y ") %><%= @eventend.strftime("%k:%M:%S %p") %></span>
+    <span class="_zonecode">11</span>
+    <span class="_summary"><%= @event.title %></span>
+    <span class="_description"><%= @event.description %></span>
+    <span class="_location"><%= @event.location %></span>
+    <span class="_organizer"><%= @event.user.name %></span>
+    <span class="_organizer_email"><%= @event.user.email %></span>
+    <span class="_all_day_event">false</span>
+    <span class="_date_format">MM/DD/YYYY</span>
+</a>
 
 
-
-
-
-
-
-
-
-
-
-
-
+</div> 
 
 
 

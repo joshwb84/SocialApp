@@ -1,16 +1,19 @@
 class EventsController < ApplicationController
 skip_before_action :require_user, only: [:index,]
-
+before_filter :current_user
   
 def index
-@events = Event.where("date > ?", Time.zone.now.beginning_of_day)
-@pastevents = Event.where("date < ?", Time.zone.now.beginning_of_day)
-
+@event = Event.where("date > ?", Time.zone.now.beginning_of_day)
+@events = @event.sort_by {|h| h[:date]}
+@pastevent = Event.where("date < ?", Time.zone.now.beginning_of_day)
+@pastevents = @pastevent.sort_by {|h| h[:date]}
 end
 
 def show
 # do something with params
 @event = Event.find_by(id: params["id"])
+@reservations = @event.reservations
+@eventend = @event.time + (60*60*2)
 end
 
 def new
@@ -18,8 +21,10 @@ def new
 end
 
 def create
-event_params = params.require(:event).permit(:category_id, :title, :description, :date, :time, :location)
+event_params = params.require(:event).permit(:category_id, :title, :description, :date, :time, :location,)
   @event = Event.create(event_params)
+  @event.user_id = current_user.id
+  @event.save
     if @event.valid?
       redirect_to events_path, notice: "Event created successfully"
     else 
@@ -49,5 +54,6 @@ def destroy
     @event.destroy
     redirect_to events_path, notice: "Event deleted"
 end
+
 
 end

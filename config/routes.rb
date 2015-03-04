@@ -63,6 +63,7 @@
 resources :events
 resources :users
 resources :sessions
+resources :reservations
 
 # Static Pages
   get '/about', to: 'home#about', :as => "about"
