@@ -21,7 +21,7 @@ def new
 end
 
 def create
-event_params = params.require(:event).permit(:category_id, :title, :description, :date, :time, :location,)
+event_params = params.require(:event).permit(:category_id, :title, :description, :date, :time, :location)
   @event = Event.create(event_params)
   @event.user_id = current_user.id
   @event.save
