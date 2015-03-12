@@ -1,7 +1,7 @@
 module ApplicationHelper
 	def site_name
     # Change the value below between the quotes to be the websites name.
-    "Social App for Kellogg"
+    "Konverge @ Kellogg"
   end
 
   def site_url

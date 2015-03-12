@@ -13,6 +13,8 @@ def show
 # do something with params
 @event = Event.find_by(id: params["id"])
 @reservations = @event.reservations
+@reservation = Reservation.new
+
 @eventend = @event.time + (60*60*2)
 end
 

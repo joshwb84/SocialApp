@@ -60,14 +60,17 @@
 #end
 #Bootstrap::Application.routes.draw do - removed this because it was in the example but I dont need it
 
-resources :events
+resources :events do
+  resources :reservations
+end
 resources :users
 resources :sessions
-resources :reservations
+
 
 # Static Pages
   get '/about', to: 'home#about', :as => "about"
   get '/terms', to: 'home#terms', :as => "terms"
+  get '/contact', to: 'home#contact', :as => "contact"
   get '/login', to: 'sessions#new'
   get '/logout', to: 'sessions#destroy'
   get '/register', to: 'users#new'
