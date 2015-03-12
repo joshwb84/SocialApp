@@ -26,13 +26,14 @@ user_params = params.require(:user).permit!
     end
 end
 
+
 def edit
 @user = User.find_by(id: params["id"])
 end
 
 def update
 user_params = params.require(:user).permit!
-  @user = User.find_by(id: params["id"])
+    @user = User.find_by(id: params["id"])
     if @user.update_attributes(user_params)
       redirect_to user_path, notice: "You're account was updated successfully"
     else 
@@ -46,6 +47,7 @@ def destroy
     @user.destroy
     redirect_to root_path
 end
+
 
 
 end
