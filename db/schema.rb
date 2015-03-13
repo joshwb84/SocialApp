@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150313033811) do
+ActiveRecord::Schema.define(version: 0) do
 
   create_table "categories", force: :cascade do |t|
     t.string "name"
@@ -19,12 +19,12 @@ ActiveRecord::Schema.define(version: 20150313033811) do
   end
 
   create_table "events", force: :cascade do |t|
+    t.integer  "category_id"
+    t.string   "title"
     t.text     "description"
     t.date     "date"
     t.time     "time"
     t.string   "location"
-    t.integer  "category_id"
-    t.string   "title"
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -54,9 +54,9 @@ ActiveRecord::Schema.define(version: 20150313033811) do
     t.string   "name"
     t.string   "email"
     t.string   "password_digest"
-    t.boolean  "tandc",           default: false
     t.text     "description"
     t.string   "facebook"
+    t.boolean  "tandc",           default: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
