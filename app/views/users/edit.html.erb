@@ -15,7 +15,7 @@
                         
                          <legend><h1> Edit your account details</h1></legend>
 
-                       <%= simple_form_for(@user, html: { class: 'form-horizontal', :multipart => true}) do |form|%>
+                       <%= simple_form_for(@user, html: { class: 'form-horizontal', multipart: true}) do |form|%>
                         <%= render 'shared/error_messages', object: @user %>
                            
                                 <div class="form-group">
