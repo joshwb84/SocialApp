@@ -44,7 +44,7 @@ Rails.application.configure do
 config.paperclip_defaults = {
   :storage => :s3,
   :s3_credentials => {
-    :bucket => "konverge",
+    :bucket => "konvergedev",
     :access_key_id => "AKIAJSQ7KIWPDLHTXRFA",
     :secret_access_key => "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"
   }

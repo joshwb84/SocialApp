@@ -14,5 +14,5 @@ has_many :reservations
 validates :name, presence: true
 validates :email, presence: true
 validates :password, presence: true
-validates :tandc, presence: true
+validates :tandc, acceptance: true
 end
