@@ -49,7 +49,7 @@ def find_user
 end
 
 def user_params
-user_params = params.require(:user).permit(!)
+user_params = params.require(:user).permit!
 end
 
 

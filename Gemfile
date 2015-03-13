@@ -33,7 +33,6 @@ gem 'ez'
 gem 'bcrypt'
 gem 'simple_form'
 gem "paperclip", "~> 4.2"
-gem 'aws-sdk', '< 2.0'
 gem "font-awesome-rails"
 
 # NOTE: The sass-rails gem is included with new Rails applications by default.
