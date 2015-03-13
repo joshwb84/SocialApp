@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
 skip_before_action :require_user, only: [:new, :create, :show]
 before_action :find_user
-before_action :user_params, except: [:show, :edit]
+skip_before_action :user_params, except: [:create, :update]
 
 def index
 redirect_to root_path, notice: "Only administrators can see that page"
