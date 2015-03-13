@@ -41,4 +41,12 @@ Rails.application.configure do
   
   Paperclip.options[:command_path] = "/usr/local/bin/"
 
+config.paperclip_defaults = {
+  :storage => :s3,
+  :s3_credentials => {
+    :bucket => "konverge",
+    :access_key_id => "AKIAJSQ7KIWPDLHTXRFA",
+    :secret_access_key => "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"
+  }
+}
 end
