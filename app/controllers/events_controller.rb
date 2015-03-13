@@ -1,6 +1,8 @@
 class EventsController < ApplicationController
 skip_before_action :require_user, only: [:index,]
 before_filter :current_user
+before_action :find_event
+before_action :event_params, only: [:create, :update]
   
 def index
 @event = Event.where("date > ?", Time.zone.now.beginning_of_day)
@@ -11,10 +13,8 @@ end
 
 def show
 # do something with params
-@event = Event.find_by(id: params["id"])
 @reservations = @event.reservations
 @reservation = Reservation.new
-
 @eventend = @event.time + (60*60*2)
 end
 
@@ -23,7 +23,6 @@ def new
 end
 
 def create
-event_params = params.require(:event).permit(:category_id, :title, :description, :date, :time, :location)
   @event = Event.create(event_params)
   @event.user_id = current_user.id
   @event.save
@@ -37,12 +36,9 @@ end
 
 def edit
 # do something with params
-@event = Event.find_by(id: params["id"])
 end
 
 def update
-event_params = params.require(:event).permit(:category_id, :title, :description, :date, :time, :location)
- @event = Event.find_by(id: params["id"])
     if @event.update_attributes(event_params)
       redirect_to event_path, notice: "Event updated"
     else 
@@ -52,10 +48,16 @@ event_params = params.require(:event).permit(:category_id, :title, :description,
 end
 
 def destroy
-  @event = Event.find_by(id: params["id"])
     @event.destroy
     redirect_to events_path, notice: "Event deleted"
 end
 
+def find_event
+  @event = Event.find_by(id: params["id"])
+end
+
+def event_params
+  event_params = params.require(:event).permit(:category_id, :title, :description, :date, :time, :location)
+end
 
 end

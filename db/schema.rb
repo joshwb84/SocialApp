@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150312030454) do
+ActiveRecord::Schema.define(version: 20150313034840) do
 
   create_table "categories", force: :cascade do |t|
     t.string "name"
@@ -19,13 +19,15 @@ ActiveRecord::Schema.define(version: 20150312030454) do
   end
 
   create_table "events", force: :cascade do |t|
-    t.text    "description"
-    t.date    "date"
-    t.time    "time"
-    t.string  "location"
-    t.integer "category_id"
-    t.string  "title"
-    t.integer "user_id"
+    t.text     "description"
+    t.date     "date"
+    t.time     "time"
+    t.string   "location"
+    t.integer  "category_id"
+    t.string   "title"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   add_index "events", ["category_id"], name: "index_events_on_category_id"
@@ -55,6 +57,8 @@ ActiveRecord::Schema.define(version: 20150312030454) do
     t.boolean  "tandc",               default: false
     t.text     "description"
     t.string   "facebook"
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.string   "avatar_file_name"
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"

@@ -1,48 +1,58 @@
 <% provide(:title, 'Account') %>
-
 <hr class="">
-<div class="container target">
-    <div class="row">
-        <div class="col-sm-10">
-             <h1 class=""><%= @user.name %> </h1>
-           <div class="btn-group"><%= link_to "Edit my details", edit_user_path(current_user), class: "btn  btn-default btn-xs"%></div> 
-
-    
-<br>
-        </div>
-      <div class="col-sm-2"><%= image_tag @user.avatar.url(:thumb) %>
-
-        </div>
-    </div>
-  <br>
-    <div class="row">
-        <div class="col-sm-3">
-            <!--left col-->
-            <ul class="list-group">
-                <li class="list-group-item text-muted" contenteditable="false">Details</li>
-                <li class="list-group-item text-right"><span class="pull-left"><strong>Date joined</strong></span> #</li>
-                <li class="list-group-item text-right"><span class="pull-left"><strong>Email</strong></span> <%= @user.email %></li>
-                <li class="list-group-item text-right"><span class="pull-left"><strong>Activities joined</strong></span> #</li>
-                    
-            </ul>
-           
-            <div class="panel panel-default">
-                <div class="panel-heading">Social profiles</div>
-                <div class="panel-body">  <a href="<%= @user.facebook %>"><i class="fa fa-facebook fa-2x"></i> </a>
-
+    <div class="container target">
+        <div class="row">
+            <div class="col-sm-8">
+                <h1 class=""><%= @user.name %>
+                </h1>
+                <div class="btn-group"><%= link_to "Edit my details", edit_user_path(current_user), class: "btn  btn-default btn-xs"%>
+                </div>
+                <br>
+                </div>
+                <div class="col-sm-4"><%= image_tag @user.avatar.url(:thumbs) %>
                 </div>
             </div>
-        </div>
-        <!--/col-3-->
-        <div class="col-sm-9" contenteditable="false" style="">
-            <div class="panel panel-default">
-                <div class="panel-heading"><%= @user.name %>'s description</div>
-                <div class="panel-body"> <%= @user.description %></div>
-            </div>
-            
-           
-
-           </div>
-        </div>
+            <br>
+                <div class="row">
+                    <div class="col-sm-3">
+                        <!--left col-->
+                        <ul class="list-group">
+                            <li class="list-group-item text-muted" contenteditable="false">Details</li>
+                            <li class="list-group-item text-right">
+                                <span class="pull-left">
+                                    <strong>Date joined</strong>
+                                </span><%= @user.created_at.strftime("%B %Y") %>
+                            </li>
+                            <li class="list-group-item text-right">
+                                <span class="pull-left">
+                                    <strong>Email</strong>
+                                </span><%= @user.email %>
+                            </li>
+                            <li class="list-group-item text-right">
+                                <span class="pull-left">
+                                    <strong>Activities joined</strong>
+                                </span> #
+                            </li>
+                        </ul>
+                        <div class="panel panel-default">
+                            <div class="panel-heading">Social profiles</div>
+                            <div class="panel-body">
+                                <a href="<%= @user.facebook %>">
+                                    <i class="fa fa-facebook fa-2x"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <!--/col-3-->
+                    <div class="col-sm-9" contenteditable="false" style="">
+                        <div class="panel panel-default">
+                            <div class="panel-heading"><%= @user.name %>'s description
+                            </div>
+                            <div class="panel-body"><%= @user.description %>
+                            </div>
+                        </div>
+                    </div>
+                </div>
         
-   
+    </div>    
+
