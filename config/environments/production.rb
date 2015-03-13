@@ -80,12 +80,12 @@ Rails.application.configure do
   config.serve_static_assets = true
   config.assets.compile = true
 
-  config.paperclip_defaults = {
+config.paperclip_defaults = {
   :storage => :s3,
   :s3_credentials => {
-    :bucket => ENV['konverge'],
-    :access_key_id => ENV['AKIAJSQ7KIWPDLHTXRFA'],
-    :secret_access_key => ENV['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']
+    :bucket => ENV['AWS_BUCKET'],
+    :access_key_id => ENV['AWS_ACCESS_KEY_ID'],
+    :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY']
   }
 }
 
