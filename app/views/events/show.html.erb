@@ -99,7 +99,7 @@
                                     <div class="panel panel-default">
                                         <div class="panel-heading">Other people attending</div>
                                         <div class="panel-body"><% @reservations.each do |show| %>
-                                            <div class="col-sm-4 text-center"><%= image_tag show.user.avatar.url(:thumbs) %>
+                                            <div class="col-sm-4 text-center"><%= image_tag show.user.avatar.url(:thumb) %>
                                                 <p>
                                                     <strong><%= link_to show.user.name, user_path(show.user.id) %>
                                                     </strong>
