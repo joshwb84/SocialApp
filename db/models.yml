@@ -10,7 +10,6 @@ User:
   password_digest: string
   description: text
   facebook: string
-  tandc: boolean
   created_at: datetime
   updated_at: datetime
   avatar_file_name: string

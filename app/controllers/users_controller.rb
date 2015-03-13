@@ -49,7 +49,7 @@ def find_user
 end
 
 def user_params
-user_params = params.require(:user).permit(:name, :email, :tandc, :description, :facebook, :avatar, :password, :avatar_file_name)
+user_params = params.require(:user).permit!
 end
 
 

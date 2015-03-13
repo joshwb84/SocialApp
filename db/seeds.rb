@@ -18,14 +18,14 @@ Category.delete_all
 
 # Create the users
 puts "Creating your Users dog..."
-user_one = User.create(name: "John Billy",email: "josh@aol.com",description: "1",password: "1234",facebook:"http://www.facebook.com/joshua.borin",tandc: "1")
-user_two = User.create(name: "Alex Smart",email: "smartalex@gmail.com",description: "2",password: "AAlex123",facebook:"http://www.facebook.com",tandc: "1")
-user_three = User.create(name: "Steph Graph",email: "Graphme@hotmail.com",description: "3",password: "Steph123",facebook:"http://www.facebook.com",tandc: "1")
-user_four = User.create(name: "Brian Eno",email: "EnosMusic@yahoo.com",description: "4",password: "BrianKnowsPW",facebook:"http://www.facebook.com",tandc: "1")
-user_five = User.create(name: "Laura bobbit",email: "laura@gmail.com",description: "5",password: "lauraspassword",facebook:"http://www.facebook.com",tandc: "1")
-user_six = User.create(name: "josh borin",email: "john@aol.com",description: "3",password: "Steph123",facebook:"http://www.facebook.com",tandc: "1")
-user_seven = User.create(name: "Bob Dylan",email: "EnosMa@yahoo.com",description: "4",password: "BrianKnowsPW",facebook:"http://www.facebook.com",tandc: "1")
-user_eight = User.create(name: "Roger rabbit",email: "lara@gmail.com",description: "5",password: "lauraspassword",facebook:"http://www.facebook.com",tandc: "1")
+user_one = User.create(name: "John Billy",email: "josh@aol.com",description: "1",password: "1234",facebook:"http://www.facebook.com/joshua.borin")
+user_two = User.create(name: "Alex Smart",email: "smartalex@gmail.com",description: "2",password: "AAlex123",facebook:"http://www.facebook.com")
+user_three = User.create(name: "Steph Graph",email: "Graphme@hotmail.com",description: "3",password: "Steph123",facebook:"http://www.facebook.com")
+user_four = User.create(name: "Brian Eno",email: "EnosMusic@yahoo.com",description: "4",password: "BrianKnowsPW",facebook:"http://www.facebook.com")
+user_five = User.create(name: "Laura bobbit",email: "laura@gmail.com",description: "5",password: "lauraspassword",facebook:"http://www.facebook.com")
+user_six = User.create(name: "josh borin",email: "john@aol.com",description: "3",password: "Steph123",facebook:"http://www.facebook.com")
+user_seven = User.create(name: "Bob Dylan",email: "EnosMa@yahoo.com",description: "4",password: "BrianKnowsPW",facebook:"http://www.facebook.com")
+user_eight = User.create(name: "Roger rabbit",email: "lara@gmail.com",description: "5",password: "lauraspassword",facebook:"http://www.facebook.com")
 
 # Create the Rsvp Cap
 puts "Creating RsvpCaps..."
