@@ -10,6 +10,7 @@ end
 
 def show
 # do something with params
+@reservations = Reservation.where(user_id: @user)
 end
 
 def new

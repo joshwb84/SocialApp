@@ -1,73 +1,14 @@
 <% provide(:title, 'Events') %>
-   
 
-<h1> Showing <b><%= @events.count %></b> live events </h1>
 
-<table class="table table-striped table-hover ">
-  <thead>
-    <tr>
-      <th></th>
-      <th>Category</th>
-      <th>Title</th>
-      <th>Desc</th>
-      <th>Date - mm/dd/yy</th>
-      <th>Time</th>
-      <th>Location</th>
-       <th></th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-  <% @events.each do |event| %>
 
-    <tr>
-      <td><i class="<%= event.category.logo %>"></i></td>
-      <td><%= event.category.name %></td>
-      <td><%= link_to event.title, event_path(event.id) %></td>
-      <td><%= event.description %></td>
-      <td><%= event.date.strftime("%D (%A)") %></td>
-      <td><%= event.time.strftime("%l:%M %p") %></td>
-      <td><%= event.location %></td>
-      <td><%= link_to "Edit", edit_event_path(event) %></td>
-      <td><%= link_to "Delete", event_path(event), method: :delete, data: {confirm:'Are you really sure? BE CAREFUL'} %> </td>
-    </tr>
-<% end %>
-  </tbody>
-</table> 
-<br>
-<h2> Showing <b><%= @pastevents.count %></b> past events </h2>
+<h1> Showing <%= @events.count %> live events </h1>
 
-<table class="table table-striped table-hover ">
-  <thead>
-    <tr>
-      <th></th>
-      <th>Category</th>
-      <th>Title</th>
-      <th>Desc</th>
-      <th>Date</th>
-      <th>Time</th>
-      <th>Location</th>
-       <th></th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-  <% @pastevents.each do |pastevent| %>
+<%= render 'table', object: @events %>   
 
-    <tr>
-      <td><i class="<%= pastevent.category.logo %>"></i></td>
-      <td><%= pastevent.category.name %></td>
-      <td><%= link_to pastevent.title, event_path(pastevent.id) %></td>
-      <td><%= pastevent.description %></td>
-      <td><%= pastevent.date.strftime("%D (%A)") %></td>
-      <td><%= pastevent.time.strftime("%l:%M %p") %></td>
-      <td><%= pastevent.location %></td>
-      <td></td>
-      <td></td>
-    </tr>
-<% end %>
-  </tbody>
-</table> 
+<h2> Showing <%= @pastevents.count %> past events </h2>
+
+<%= render 'table', object: @pastevents %>   
 
 
  <div class="container">
