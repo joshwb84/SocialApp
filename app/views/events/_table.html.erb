@@ -6,9 +6,9 @@
       <th></th>
       <th>Category</th>
       <th>Title</th>
-      <th>Desc</th>
-      <th>Date - mm/dd/yy</th>
-      <th>Time</th>
+      <th>Description</th>
+      <th><%= sortable "Date" %></th>
+      <th><%= sortable "Time" %></th>
       <th>Location</th>
        <th></th>
       <th></th>
@@ -22,7 +22,7 @@
       <td><%= event.category.name %></td>
       <td><%= link_to event.title, event_path(event.id) %></td>
       <td><%= event.description %></td>
-      <td><%= event.date.strftime("%D (%A)") %></td>
+      <td><%= event.date.strftime("%D") %></td>
       <td><%= event.time.strftime("%l:%M %p") %></td>
       <td><%= event.location %></td>
       <td><%= link_to "Edit", edit_event_path(event) %></td>

@@ -3,10 +3,12 @@ skip_before_action :require_user, only: [:index,]
 before_filter :current_user
 before_action :find_event
 before_action :event_params, only: [:create, :update]
+helper_method :sort_column, :sort_direction
   
 def index
 @event = Event.where("date > ?", Time.zone.now.beginning_of_day)
-@events = @event.sort_by {|h| h[:date]}
+@events = @event.order(sort_column + " " + sort_direction)
+
 @pastevent = Event.where("date < ?", Time.zone.now.beginning_of_day)
 @pastevents = @pastevent.sort_by {|h| h[:date]}
 end
@@ -60,4 +62,15 @@ def event_params
   event_params = params.require(:event).permit(:category_id, :title, :description, :date, :time, :location)
 end
 
+private
+
+def sort_column
+  Event.column_names.include?(params[:sort]) ? params[:sort] : "Date"
 end
+
+def sort_direction
+  %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
+end
+
+end
+

@@ -1,29 +1,15 @@
 <% provide(:title, 'Events') %>
 
-
-
 <h1> Showing <%= @events.count %> live events </h1>
 
-<%= render 'table', object: @events %>   
+<%= render 'table', object: @events %>  
 
-<h2> Showing <%= @pastevents.count %> past events </h2>
+<div class="btn-group">
+    <%= link_to "Create an event", new_event_path, class: "btn btn-default btn-lg btn-primary" %>
+</div> 
+
+<h1> Showing <%= @pastevents.count %> past events </h1>
 
 <%= render 'table', object: @pastevents %>   
-
-
- <div class="container">
-        <!-- Example row of columns -->
-        <div class="row">
-            <div class=".col-md-6 .col-md-offset-3">
-                <div class="btn-toolbar">
-                    <div class="btn-group">
-                        <%= link_to "Create an event", new_event_path, class: "btn btn-default btn-lg btn-primary" %>
-                    </div>
-                </div>
-
-
-            </div>
-        </div>
-    </div>
 
 
